@@ -1,0 +1,270 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body.index {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(150, 42, 42));
+    background-size: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+body.últimasnotícias,
+body.campeonatos,
+body.históriadoclube {
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/FlamengoCampeao2019BRA.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.navbar {
+    background-color: rgb(138, 5, 32);
+    height: 60px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+/* Display: the way elements will be shown on the webpage. Inline/Block/Inline-block. Flexbox.  https://www.youtube.com/watch?v=phWxA89Dy94&t=275s&ab_channel=SlayingTheDragon
+   Flex-direction: Can change the main axis and the cross axis. The default is row.
+   Justify-content: Aligns items on the main axis
+   Align-items: Aligns items on the cross axis
+   Position: How an element is positioned in a document.  https://www.youtube.com/watch?v=jx5jmI0UlXU&ab_channel=WebDevSimplified
+       1. static: default one.
+       2. relative : Same as static. But lets you add top, right, bottom, left. Makes it move relative to its normal position
+       3. absolute: Removes from the flow and positions absolute wrt to the parent. Parent has to be relative or absolute for top, right, bottom, left to work. Else it considers the main html element as the  parent .
+       4. fixed : Fixed to a place. Doesn't give two shits about the parent. Always considers html element as the parent. Stays there when scrolled.
+       5. sticky : Relative ( when normal) + fixed ( when scrolled). The values for top, right, bottom, left become active when scrolled
+   Z-index: defines wich element will stack upon another.  https://www.youtube.com/watch?v=l55hSbBUdmQ&ab_channel=LearnWebCode
+    */
+
+.navbar_container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+#navbar_logo {
+    /* Background settings */
+    background-color: rgba(0, 0, 0, 0.89);
+    background-image: linear-gradient(to top, rgb(158, 4, 4), rgb(3, 2, 2));
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    /* Flexbox settings */
+    display: flex;
+    align-items: center;
+    /* Styling */
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+#navbar_logo:link,
+#navbar_logo:visited,
+#navbar_logo:hover,
+#navbar_logo:active{
+    text-decoration: none;
+}
+
+.navbar_menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+
+/*  background-image: linear-gradient(); Is used to create a linear gradient as background, a smooth transition between 2 colors.
+    -webkit-background-clip: webkit-background-clip property is a browser-specific CSS property that controls how the background of an element is applied within its container
+        border-box: The background is drawn beneath the border. This is the default value. The background extends to the outer edge of the border.
+        padding-box: The background is drawn within the padding area, but does not extend into the border area.
+        content-box: The background is drawn within the content area only. It does not extend into the padding or border areas.
+        text: The background is clipped to the foreground text. This value is often used with background-image: linear-gradient() to create gradient text effects.
+ */
+
+.navbar_item {
+    height: 80px;
+    position: relative;
+    display: inline-block;
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.sub-menu-item {
+    color: rgb(217, 231, 13);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.navbar_item:hover .sub-menu {
+    display: block;
+}
+
+.navbar_links {
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+}
+
+.navbar_links:hover {
+    color: red;
+    transition: all 0.5s ease;
+}
+
+.search_bar {
+    background-color: black;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1rem;
+    position: sticky;
+    z-index: 1;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    height: 35px;
+    width: 300px;
+    z-index: 1;
+}
+
+.bar {
+    display: none;
+}
+
+.next-matches-container {
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(150, 42, 42));
+    background-size: cover;
+    background-clip: border-box;
+    border: 1px solid;
+    height: 500px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.1rem;
+    position: sticky;
+    z-index: 1;
+    align-self: flex-end;
+    margin-top: 10px;
+    margin-left: auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+.next-matches-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.next-matches-menu-item{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+ }
+
+
+
+ .next-matches-links:link,
+ .next-matches-links:visited,
+ .next-matches-links:hover,
+ .next-matches-links:active {
+     text-decoration: none;
+ }
+
+.next-matches-links:visited{
+    background-color: black;
+    background-clip: content-box;
+}
+
+.main-news{
+    border: 1px solid;
+    display: inline-block;
+    position: relative;
+   margin: -500px 0 0 30px;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+
+}
+
+.main-news img{
+    display: block;
+    width: 100%;
+    height: auto;
+    position: sticky;
+}
+
+
+main{
+    margin: 200px;
+}
+
+
+@media screen and (max-width: 960px) {
+    .navbar_container {
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        z-index: 1;
+        width: 100%;
+        max-width: 1300px;
+        padding: 0;
+    }
+
+    .navbar_menu {
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+    }
+
+    .bar {
+        display: inline-block;
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 5px 0;
+    }
+}
